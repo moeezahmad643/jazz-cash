@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: #262626;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      display: grid;
+      place-items: center;
+
+      & header {
+        margin: 15px;
+      }
+
+      #card {
+        width: 89vw;
+        padding: 10px;
+        border-top: 5px dotted #262626;
+        color: #262626;
+
+        .line {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+        }
+
+        .main-head {
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      & footer {
+        color: white;
+      }
+    }
+  </style>
+</body>
+
+<header>
+  <center>
+    <img src="tick.png" alt="">
+  </center>
+</header>
+<div id="card" style="color: #414040; background-color: white;">
+  <div class="main-head">
+    <h2 style="font-weight: bold; margin-bottom: 0; color: black;">Transaction Sussessful</h2>
+   
+      <p id="id" style="margin: 2px;padding: 2px; color: #373737; font-size: smaller;"></p>
+      <p id="date-time" style="margin: 2px;padding: 2px; color: #373737; font-size: smaller;"></p>
+   
+  </div>
+  <hr>
+
+
+  <div class="line">
+    <p>Fee</p>
+    <p>0.00</p>
+  </div>
+  <hr>
+
+
+  <div class="main-head">
+    <div style="display: flex; align-items: baseline; margin: 0;padding: -2px;">
+      <h2 id="price" style="color: black;">2000</h2>
+      <p style="color: black;">.00</p>
+    </div>
+    <p style="color: #373737; margin: 0; padding: -10px;">Transferred to JazzCash</p>
+  </div>
+  <hr>
+
+  <div class="line">
+    <p>To</p>
+    <div style="display: flex; flex-direction: column;">
+      <p style="margin: 0;" id="reciver-name">Moeez</p>
+      <p style="margin: 0;" id="reciver-number">0303030303</p>
+    </div>
+  </div>
+  <hr>
+
+  <div class="line">
+    <p>From</p>
+    <div style="display: flex; flex-direction: column;">
+      <p style="margin: 0;" id="sender-name">moiz</p>
+      <p style="margin: 0;" id="sender-number">1222122</p>
+    </div>
+  </div>
+
+  <div class="line" style="display: flex; flex-direction: row; justify-content: center; place-items: center;">
+    <p>Securely Paid via</p>
+    <img style="width: 60px ;display: inline-block;" src="lasts.jfif" alt="">
+  </div>
+
+
+</div>
+<footer>
+  <center><i class="bi bi-exclamation-circle"></i>Never share your MPIN with anyone</center>
+
+  <div id="buttons" style="display: flex; justify-content: center; ">
+    <button style="border: 1px solid white; border-radius: 30px; margin: 10px; padding: 15px; font-size: large; background-color: #262626; color: white;"><i class="bi bi-share" style="margin: 5px;"></i>Share</button>
+    <button style="border: 1px solid white; border-radius: 30px; margin: 10px; padding: 15px; font-size: large; background-color: #262626; color: white;">Save</button>
+  </div>
+</footer>
+
+<script>
+   let price =  prompt('Price')
+  document.getElementById('price').innerText="Rs. "+price
+
+   let recivername =  prompt('reciver-name')
+  document.getElementById('reciver-name').innerText=recivername
+   let recivernumber =  prompt('reciver-number')
+  document.getElementById('reciver-number').innerText=recivernumber
+
+   let senderName =  prompt('sender-name')
+  document.getElementById('sender-name').innerText=senderName
+   let senderNumber =  prompt('sender-number')
+  document.getElementById('sender-number').innerText=senderNumber
+
+
+  let id = Math.floor(Math.random() * (10000000000 - 99999999998 + 1)) + 10000000000
+  document.getElementById("id").innerHTML = 'TID: ' + id
+
+
+
+  let today = new Date();
+
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    if (mm == 1) mm = 'January'
+    if (mm == 2) mm = 'Februry'
+    if (mm == 3) mm = 'March'
+    if (mm == 4) mm = 'April'
+    if (mm == 5) mm = 'May'
+    if (mm == 6) mm = 'June'
+    if (mm == 7) mm = 'July'
+    if (mm == 8) mm = 'Augest'
+    if (mm == 9) mm = 'September'
+    if (mm == 10) mm = 'October'
+    if (mm == 11) mm = 'November'
+    if (mm == 12) mm = 'Decebmer'
+
+  }
+
+  const d = new Date();
+  let hour = d.getHours()
+  let mint = d.getMinutes()
+
+  let time;
+
+  time = hour + ':' + mint
+
+
+  today = 'On ' + mm + ' ' + dd + ' , ' + yyyy + ' at ' + time;
+
+  document.getElementById("date-time").innerHTML = today
+</script>
+
+</html>
